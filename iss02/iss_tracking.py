@@ -40,8 +40,8 @@ lat = round(float(lat))
 iss.penup()
 iss.goto(lon, lat)
 
-yellowlat = 47.6
-yellowlon = -122.3
+yellowlat = 39.3
+yellowlon = -80.3
 mylocation = turtle.Turtle()
 mylocation.penup()
 mylocation.color('yellow')
