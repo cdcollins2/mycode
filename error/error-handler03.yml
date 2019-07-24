@@ -1,0 +1,13 @@
+---
+- name: Triggering a false
+  hosts: planet-express
+
+  tasks:
+    - block: 
+        - shell: "echo 'My single task ran' > example.txt"
+        - shell: "echo 'My second tast ran' >> example.txt"
+        - shell: "bin/false" 
+      rescue:
+        - shell: "echo 'My rescue code ran. Maybe it undoes whatever the block tried to do' >> example.txt"
+      always:
+        - shell: "echo 'This always runs. Maybe it is a commit, or an entry log'>> example.txt"
