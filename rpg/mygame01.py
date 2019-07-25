@@ -97,7 +97,7 @@ while True:
 
     #if you have the mirror when you face the monster 
     if 'mirror' in inventory and 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
-        print('The monster sees himself and runs away!')
+        print('The monster is a Gorgon so you use the mirror to turn it into stone!')
         inventory.remove('mirror')
         del rooms[currentRoom]['item']
 
@@ -107,7 +107,7 @@ while True:
         break
 
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory and 'treasure' in inventory:
-        print("You escaped the house with the key, potion, and treasure!")
+        print("You escaped the house with the key, potion, and the monster's treasure!")
         break
 
     ##Define how a player can win
