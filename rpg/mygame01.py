@@ -46,7 +46,12 @@ rooms = {
                 }, 
             'Bedroom' : {
                     'south': 'Dining Room', 
+                    'west' : 'Hidden Room',
                     'item' : 'mirror'
+                }, 
+            'Hidden Room' : {
+                    'west' : 'Hall', 
+                    'item' : 'treasure'
                 }
         }
 #start the player in the Hall
@@ -90,9 +95,19 @@ while True:
             #tell them they can't get it 
             print('Can\'t get ' + move[1] + '!')
 
+    #if you have the mirror when you face the monster 
+    if 'mirror' in inventory and 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
+        print('The monster sees himself and runs away!')
+        inventory.remove('mirror')
+        del rooms[currentRoom]['item']
+
     ##If a player enters a room with a monster 
     if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
         print('A monster has got you.... Game Over!')
+        break
+
+    if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory and 'treasure' in inventory:
+        print("You escaped the house with the key, potion, and treasure!")
         break
 
     ##Define how a player can win
